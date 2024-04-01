@@ -73,5 +73,12 @@ class Model {
         $stm->bindValue(':id', $id);
         $stm->execute();
     }
+
+    public function getTotalGroupByColumn($column){
+        $sql = "SELECT {$column}, COUNT(*) AS total FROM {$this->table} GROUP BY {$column}";
+        $stm = $this->db->prepare($sql);
+        $stm->execute();
+        return $stm->fetchAll(PDO::FETCH_ASSOC);
+    }
     
 }

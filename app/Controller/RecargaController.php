@@ -215,5 +215,46 @@ class RecargaController extends Controller {
         }
     }
 
+    public function grafico(){
+        header('Content-Type: application/json');
+
+        $inputJSON = file_get_contents('php://input');
+        $input = json_decode($inputJSON);
+        $column_name = isset($input->column) ? trim($input->column) : null;
+
+        if (!$column_name) {
+            echo json_encode(["success" => false, "message" => "Falta el nombre de la columna."]);
+            return;
+        }
+
+        $result = $this->recargaModel->getTotalGroupByColumn($column_name);
+
+        if (!$result) {
+            http_response_code(404);
+            echo json_encode([
+                "success" => false,
+                "message" => "No se pudo obtener el historial"
+            ]);
+        } else {
+
+
+            $datosParaGrafico = array_map(function ($row) use ($column_name) {
+                return [
+                    'name' => $row[$column_name],
+                    'y' => (int) $row['total'],
+                ];
+            }, $result);
+
+            echo json_encode([
+                "success" => true,
+                "message" => "Datos obtenidos",
+                "data_to_graph" => $datosParaGrafico
+            ]);
+        }
+    }
+
+    public function reporte(){
+        $this->render('recargas/reporte', [], 'base');
+    }
 
 }
