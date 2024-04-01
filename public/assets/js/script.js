@@ -288,7 +288,7 @@ function createRecargaResumenUI({monto_recargado, banco, canal_comunicacion, vou
 }
 
 function showVoucher(filename){
-    const contentTemplate = `<div class="text-center"><img src="./../../public/uploads/${filename}" class="img-fluid" alt=""></img></div>`;
+    const contentTemplate = `<div class="text-center"><img src="./../public/uploads/${filename}" class="img-fluid" alt=""></img></div>`;
     showInfoModal("Voucher", contentTemplate);
 }
 
