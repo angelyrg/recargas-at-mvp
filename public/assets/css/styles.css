@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+
+:root {
+    --color-primary: #FF0000;
+    --color-secondary: #ffc700;
+    --color-bg: #fff;
+    --color-text: #000;
+    --color-link: #0f80d2;
+}
+
+
+body {
+    font-family: "Rubik", sans-serif;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+}
+
+p{
+    margin-bottom: 0.5rem;
+}
+
+.color-brand{
+    color: var(--color-primary);
+}
+
+button {
+    font-weight: 500;
+    border-radius: 0.5rem;
+    position: relative;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px, rgba(0, 0, 0, 0.08) 0px 1px 3px;
+    border: 1px solid var(--color-primary);
+    background: var(--color-primary);
+    color: white;
+    padding: 5px 10px;
+}
+
+button:disabled{
+    opacity: 0.5;
+}
+
+button:hover {
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, .5);
+}
+button:focus {
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+.form-control:focus, .form-select:focus {
+    box-shadow: none;
+    border-radius: 0.5rem;
+    border: 2px solid var(--color-primary);
+}
+
+
+/* HEADER */
+
+.menu_options{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.menu_options a{
+    text-decoration: none;
+    color: var(--color-text);
+}
+.menu_options a:hover{
+    color: var(--color-primary);
+}
+
+
+.user_avatar{
+    background-color: var(--color-primary);
+    color: white;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* END HEADER */
+
+
+.card_title{
+    font-size: 1.3rem;
+    text-align: center;
+}
+
+.form-input{
+    transition: all 200ms ease 0s;
+    border: 1px solid rgb(63, 63, 70);
+    box-shadow: transparent 0px 0px 0px 2px;
+    width: 100%;
+    border-radius: 0.5rem;
+    padding: 5px 10px;
+}
+
+
+.client_name{
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.client_id{
+    color: var(--color-primary);
+}
+
+
+.historial-table{
+    max-height: 700px;
+}
